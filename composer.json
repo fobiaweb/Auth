@@ -1,0 +1,20 @@
+{
+    "name": "fobiaweb/auth",
+    "type": "library",
+    "description": "Fobia Auth Component",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "psr-0": { "Fobia\\Auth\\": "" }
+    },
+    "suggest": {
+        "psr/log": "",
+        "fobiaweb/php-helper-lib": "",
+        "fobiaweb/debug": "",
+        "fobiaweb/database": ""
+    },
+    "target-dir": "Fobia/Base",
+    "minimum-stability": "dev"
+}
