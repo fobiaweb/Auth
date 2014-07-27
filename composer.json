@@ -15,6 +15,6 @@
         "fobiaweb/debug": "",
         "fobiaweb/database": ""
     },
-    "target-dir": "Fobia/Base",
+    "target-dir": "Fobia/Auth",
     "minimum-stability": "dev"
 }
