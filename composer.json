@@ -6,6 +6,11 @@
     "require": {
         "php": ">=5.3.3"
     },
+    "require-dev": {
+        "fobiaweb/php-helper-lib": "dev-master",
+        "fobiaweb/debug": "dev-master",
+        "fobiaweb/database": "dev-master"
+    },
     "autoload": {
         "psr-0": { "Fobia\\Auth\\": "" }
     },

@@ -95,6 +95,7 @@ class Authentication
 
     /**
      * Get user ID
+     *
      * @return int
      */
     public function getId()
@@ -104,6 +105,7 @@ class Authentication
 
     /**
      * Get user mask roles
+     *
      * @return int
      */
     public function getRoles()
@@ -113,6 +115,7 @@ class Authentication
 
     /**
      * Get user login
+     *
      * @return string
      */
     public function getLogin()
@@ -122,6 +125,7 @@ class Authentication
 
     /**
      * Get user password hex
+     *
      * @return string
      */
     public function getPassword()
@@ -129,6 +133,10 @@ class Authentication
         return $this->user->{$this->map['password']};
     }
 
+    /**
+     *
+     * @return mixed
+     */
     public function getUser()
     {
         return $this->user;
@@ -141,6 +149,7 @@ class Authentication
 
     /**
      * Проверить принадлежность роли
+     *
      * @param int $role числовой индетификатор роли
      * @return boolean
      */
@@ -252,6 +261,7 @@ class Authentication
 
     /**
      * Проверка сессии на принадлежнасть текущей сесии
+     * 
      * @param string $userSid сесия в формате 'IP;SID'
      * @return boolean
      */
@@ -300,6 +310,8 @@ class Authentication
 
     /**
      * Механизм индетификации
+     *
+     * @return void 
      */
     public function authenticate()
     {
