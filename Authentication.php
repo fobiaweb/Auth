@@ -53,7 +53,7 @@ class Authentication
         'id'       => 'id',
         'login'    => 'login',
         'password' => 'password',
-        'role'     => 'role',
+        'role'     => 'role_mask',
         'online'   => 'online',
         'sid'      => 'sid',
     );
