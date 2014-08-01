@@ -313,12 +313,13 @@ class Authentication
                 }
             }
         }
-
-        $stmt = $db->query("SELECT name, value FROM users_access WHERE user_id = '{$this->getId()}'");
-        $rows = $stmt->fetchAll();
-
-        foreach ($rows as $value) {
-            $this->user->access[$value['name']] = $value['value'];
+        
+        // $rows = array();
+        if ($stmt = $db->query("SELECT name, value FROM users_access_1 WHERE user_id = '{$this->getId()}'")) {
+            $rows = $stmt->fetchAll();
+            foreach ($rows as $value) {
+                $this->user->access[$value['name']] = $value['value'];
+            }
         }
     }
 
