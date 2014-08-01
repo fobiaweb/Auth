@@ -13,6 +13,13 @@ use Fobia\Base\Application;
 /**
  * Auth class
  *
+ * Options:
+ *   tableName - название таблиццы
+ *   map       - карта-схема таблицы
+ *   cacheAuth - хранить сесию
+ *   dTime     - интервал онлайна сесии (при включеном cacheAuth)
+ *
+ *
  * @package Fobia.Auth
  */
 class Authentication
@@ -66,7 +73,7 @@ class Authentication
      */
     protected $dTime = 300;
 
-    protected $status = null;//'AUTH_INCORRECT';
+    protected $status = null; // 'AUTH_NONE';
 
 
     /**
