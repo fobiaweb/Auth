@@ -3,6 +3,9 @@ Auth
 
 php Fobia Auth Component
 
+ADMIN
+OVERRIDE
+
 
 Сгенерировать таблицу:
 

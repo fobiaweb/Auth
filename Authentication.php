@@ -167,6 +167,11 @@ class Authentication
             : false;
     }
 
+    public function isAccess($name, $value = 1)
+    {
+        return ($this->user->access[$name] == $value) ? true : false;
+    }
+
     /**
      * Зарегистрироваться в системе
      *
@@ -249,7 +254,7 @@ class Authentication
      * @return mixed
      * @api
      */
-    public function checkLogin($login, $passhex)
+    protected function checkLogin($login, $passhex)
     {
         $db = $this->app->db;
         $q  = $db->createSelectQuery();
@@ -272,7 +277,7 @@ class Authentication
      * @param string $userSid сесия в формате 'IP;SID'
      * @return boolean
      */
-    public function checkSidAuth($userSid)
+    protected function checkSidAuth($userSid)
     {
         list($ip, $sid) = explode(';', $userSid);
         if ($ip == $this->app->request->getClientIp() && $sid == session_id()) {
@@ -283,11 +288,25 @@ class Authentication
     }
 
     /**
+     * @return void 
+     */
+    protected function readAccess()
+    {
+        $db = $this->app->db;
+        $stmt = $db->query("SELECT name, value FROM users_access WHERE user_id = '{$this->getId()}'");
+        $rows = $stmt->fetchAll();
+
+        foreach ($rows as $value) {
+            $this->user->access[$value['name']] = $value['value'];
+        }
+    }
+
+    /**
      * Устанавливает флаг в online
      *
      * @return void
      */
-    public function setOnline($sid = true)
+    protected function setOnline($sid = true)
     {
         if ( ! @$this->map['online'] || ! @$this->user) {
             return;

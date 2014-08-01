@@ -41,3 +41,18 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `login`, `password`, `role_mask`, `online`, `sid`) VALUES
 (1, 'test@test', '76a1bd87b1b49ea21ab9a25da7a2d27587f3e0b6f3f833bfb11ba132434f4abd', 0, '2014-06-22 15:01:10', NULL);
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users_access`
+--
+
+CREATE TABLE IF NOT EXISTS `users_access` (
+  `user_id` int(11) NOT NULL,
+  `name` varchar(15) NOT NULL,
+  `value` varchar(5) NOT NULL DEFAULT '1',
+  UNIQUE KEY `id` (`user_id`,`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Права доступа для пользователя';
