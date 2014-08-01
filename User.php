@@ -15,12 +15,14 @@ namespace Fobia\Auth;
  */
 class User implements IUserIdentity
 {
+    public $access = array();
+
     public function getId()
     {
         return $this->id;
     }
 
-    public function getName()
+    public function getUsername()
     {
         return $this->login;
     }
@@ -37,9 +39,13 @@ class User implements IUserIdentity
 
     public function isAccess($access, $value = 1)
     {
-        
+        return ($this->access[$access] == $value) ? true : false;
     }
 
+    public function getAccess($access)
+    {
+        return $this->access[$access];
+    }
 
     public function readData()
     {

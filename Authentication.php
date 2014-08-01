@@ -162,6 +162,9 @@ class Authentication
      */
     public function isRole($role)
     {
+        if (!is_numeric($role)) {
+            
+        }
         return (($this->user) && ($this->getRoles() & (int) $role)) 
             ? true
             : false;

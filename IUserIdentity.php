@@ -30,7 +30,7 @@ interface IUserIdentity
      *
      * @return string отображаемое имя для идентификации.
      */
-    public function getName();
+    public function getUsername();
 
     /**
      * Возвращает пароль в шифрованом виде
