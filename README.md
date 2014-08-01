@@ -3,6 +3,33 @@ Auth
 
 php Fobia Auth Component
 
+## Файл прав доступа
+
+__access.php__
+```php
+return array(
+    1 => array(
+        'list' => array(
+            'ACCESS_1',
+            'ACCESS_2'
+        ),
+        'value' => array(
+            'ACCESS_3' => 11
+        )
+    ),
+    2 => array(
+        'list' => array(
+            'ACCESS_1',
+            'ACCESS_2'
+        ),
+        'value' => array(
+            'ACCESS_3' => 11
+        )
+    )
+);
+```
+
+
 ADMIN
 OVERRIDE
 

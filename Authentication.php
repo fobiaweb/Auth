@@ -290,9 +290,27 @@ class Authentication
     /**
      * @return void 
      */
-    protected function readAccess()
+    public function readAccess()
     {
         $db = $this->app->db;
+
+        $file = CONFIG_DIR . '/access.php';
+        if (file_exists($file)) {
+            $access = include $file;
+        }
+
+        $roles = array_keys($access);
+        foreach ($roles as $role) {
+            if ($this->isRole($role)) {
+                foreach ($access[$role]['list'] as $a) {
+                    $this->user->access[$a] = 1;
+                }
+                foreach ($access[$role]['value'] as $a => $v) {
+                    $this->user->access[$a] = $v;
+                }
+            }
+        }
+
         $stmt = $db->query("SELECT name, value FROM users_access WHERE user_id = '{$this->getId()}'");
         $rows = $stmt->fetchAll();
 
